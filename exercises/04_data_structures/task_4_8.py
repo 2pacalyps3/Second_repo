@@ -20,3 +20,11 @@
 """
 
 ip = "192.168.3.1"
+ip_add = ip.split(".")
+ip_address = """
+{0:<10} {1:<10} {2:<10} {3:<10}
+{0:<08b}   {1:<08b}   {2:<08b}   {3:<08b}
+"""
+print(ip_address.format(int(ip_add[0]), int(ip_add[1]), int(ip_add[2]), int(ip_add[3])))
+print(ip_address.format(192, 168, 3, 1))
+
