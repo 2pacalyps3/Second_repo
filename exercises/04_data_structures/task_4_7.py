@@ -10,3 +10,8 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+mac1 = mac.split(":")
+mac2 = "".join(mac1)
+mac3 = bin(int(mac2, 16))
+print(mac3[2::])
+
