@@ -27,5 +27,3 @@ Outbound Interface           {}
 ''')
 print(ospf2.format(ospf1[0], ospf1[1], ospf1[2], ospf1[3], ospf1[4]))
 
-
-
