@@ -48,4 +48,4 @@ london_co = {
 }
 
 name = input("Введите имя устройства: ")
-print('{}'.format(london_co[name]))
+print(london_co[name])
