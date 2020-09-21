@@ -13,3 +13,15 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+IP_add = input("Введите IP адрес в формате (х.х.х.х): ")
+IP = IP_add.split(".")
+if int(IP[0])>=1 and int(IP[0])<=223:
+    print("unicast")
+elif int(IP[0])>=224 and int(IP[0])<=239:
+    print("multicast")
+elif IP_add == "255.255.255.255":
+    print("local broadcast")
+elif IP_add == "0.0.0.0":
+    print("unassigned")
+else:
+    print("unused")
