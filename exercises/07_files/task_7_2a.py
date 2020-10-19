@@ -22,11 +22,11 @@ f = open(a)
 
 f1 = f.read().strip().split("\n")
 
-for i in range(len(f1)):
-    c = f1[i].startswith("!")
+for b in range(len(f1)):
+    c = f1[b].startswith("!")
     if c == False:
-        if ignore[0] in f1[i] or ignore[1] in f1[i] or ignore[2] in f1[i]:
+        if ignore[0] in f1[b] or ignore[1] in f1[b] or ignore[2] in f1[b]:
             pass
         else:
-            print(f1[i])
+            print(f1[b])
 
