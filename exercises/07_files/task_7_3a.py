@@ -24,3 +24,19 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+f = open("CAM_table.txt")
+f1 = f.read().strip().split('\n')
+list_1 = []
+for i in range(len(f1)):
+    a = f1[i].startswith(" ")
+    if a == True:
+        b = f1[i].split()
+        b.pop(2)
+        if b[0].isdigit():
+            b[0] = int(b[0])
+            list_1.append(b)
+list_2 = sorted(list_1)
+for k in list_2:
+    print("{:<5}  {:<16}  {}".format(k[0], k[1], k[2]))
+
+
