@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.7
 # -*- coding: utf-8 -*-
 """
 Задание 7.2
@@ -12,3 +13,12 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+from sys import argv
+a = argv[1]
+f = open(a)
+
+f1 = f.read().strip().split("\n")
+for i in range(len(f1)):
+    c = f1[i].startswith("!")
+    if c == False:
+        print(f1[i])

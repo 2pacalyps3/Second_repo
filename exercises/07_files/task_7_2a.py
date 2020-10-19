@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.7
 # -*- coding: utf-8 -*-
 """
 Задание 7.2a
@@ -12,4 +13,20 @@
 
 """
 
+
+from sys import argv
+
 ignore = ["duplex", "alias", "Current configuration"]
+a = argv[1]
+f = open(a)
+
+f1 = f.read().strip().split("\n")
+
+for i in range(len(f1)):
+    c = f1[i].startswith("!")
+    if c == False:
+        if ignore[0] in f1[i] or ignore[1] in f1[i] or ignore[2] in f1[i]:
+            pass
+        else:
+            print(f1[i])
+
