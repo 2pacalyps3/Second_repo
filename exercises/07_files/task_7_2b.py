@@ -14,3 +14,13 @@
 """
 
 ignore = ["duplex", "alias", "Current configuration"]
+f = open("config_sw1.txt")
+f1 = f.read().strip().split("\n")
+f2 = open("config_sw1_cleared.txt", "w")
+for i in range(len(f1)):
+    if ignore[0] in f1[i] or ignore[1] in f1[i] or ignore[2] in f1[i]:
+        pass
+    else:
+        f2.write(f1[i] + "\n")
+f2.close()
+        
