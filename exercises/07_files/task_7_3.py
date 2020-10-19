@@ -17,3 +17,13 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+f = open("CAM_table.txt")
+f1 = f.read().strip().split('\n')
+for i in range(len(f1)):
+    a = f1[i].startswith(" ")
+    if a == True:
+        b = f1[i].split()
+        if b[0].isdigit():
+            print("{:5} {:15} {}".format(b[0], b[1], b[3]))
+
+
