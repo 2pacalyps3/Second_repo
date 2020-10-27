@@ -38,7 +38,16 @@ def parse_cdp_neighbors(command_output):
     работать и с файлами и с выводом с оборудования.
     Плюс учимся работать с таким выводом.
     """
-
+    dic = {}
+    a = command_output.split(">")[0].lstrip()
+    b = command_output.split("Port ID")
+    
+    c = b[1].strip().split("\n")
+    for i in c:
+        output = i.split()
+        dic[a, output[1] + output[2]] = (output[0], output[-2] + output[-1])
+    return dic
+      
 
 if __name__ == "__main__":
     with open("sh_cdp_n_sw1.txt") as f:
