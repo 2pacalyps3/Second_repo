@@ -23,3 +23,23 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+result = {}
+result1 = {}
+result2 = (result, result1)
+def get_int_vlan_map(config_filename):
+    with open(config_filename) as f:
+        for line in f:
+            if "interface" in line:
+                interface = line.split()[-1]
+            elif "access vlan" in line:
+                vlan = line.split()[-1]
+                result[interface] = vlan
+            elif "allowed vlan" in line:
+                vlans1 = line.split()
+                vlans = vlans1[-1].split(",")
+                result1[interface] = vlans
+            elif "access" in line and "vlan" not in line:
+                result[interface] = "1"
+    print(result2)
+get_int_vlan_map("config_sw2.txt")
+
