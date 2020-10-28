@@ -22,16 +22,27 @@
 
 ignore = ["duplex", "alias", "Current configuration"]
 
-
-def ignore_command(command, ignore):
-    """
-    Функция проверяет содержится ли в команде слово из списка ignore.
-
-    command - строка. Команда, которую надо проверить
-    ignore - список. Список слов
-
-    Возвращает
-    * True, если в команде содержится слово из списка ignore
-    * False - если нет
-    """
+def ignore_command(command):
     return any(word in command for word in ignore)
+result = {}
+
+def func(config_filename):
+    with open(config_filename) as f:
+        for line in f:       
+            if line[0].isalpha() or line[0].startswith(" "):
+                if ignore[0] in line or ignore[1] in line or ignore[2] in line:
+                    pass
+                else:     
+                    a = line.rstrip()
+                    if a[0].isalpha() and a.startswith(""):
+                        result1 = []
+                        res = a
+                        result[res] = result1
+                    elif a.startswith(" "):
+                        res1 = a
+                        result1.append(res1)
+                        result[res] = result1
+                        
+    print(result)
+func("config_sw1.txt")
+print(ignore_command(result))
