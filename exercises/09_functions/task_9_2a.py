@@ -26,3 +26,18 @@ trunk_config = {
     "FastEthernet0/2": [11, 30],
     "FastEthernet0/4": [17],
 }
+d = {}
+def config(intf_vlan, trunk_template):
+    for intf, vlans in intf_vlan.items():
+        vlan1 = ["{}".format(vlan) for vlan in vlans]
+        vlan1 = ",".join(vlan1)
+        k = []
+        d[intf] = k
+        for i in range(len(trunk_template)):
+            if trunk_template[i].endswith("vlan"):
+                k.append(trunk_template[i] + " " + vlan1)
+            else:
+                k.append(trunk_template[i])
+
+    print(d)
+config(trunk_config, trunk_mode_template)
