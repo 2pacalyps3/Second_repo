@@ -28,6 +28,6 @@ def ping_ip_addresses(*args):
     print(c)
     return c
     
-ping_ip_addresses("a", "8.8.8.8", "10.1.0.7", "1.1.1")
+ping_ip_addresses("a", "8.8.8.8", "1.1.1.1", "1.1.1")
 
 
