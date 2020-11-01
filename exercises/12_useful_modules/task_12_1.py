@@ -26,8 +26,8 @@ def ping_ip_addresses(args):
             a.append(i)
         else:
             b.append(i)
-        c = (a, b) 
-    return c
+        d = (a, b) 
+    return d
 
 
 if __name__ == "__main__":
