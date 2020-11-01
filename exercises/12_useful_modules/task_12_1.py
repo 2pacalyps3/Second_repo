@@ -15,6 +15,8 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
 import subprocess
+
+
 def ping_ip_addresses(*args):
     a = []
     b = []
@@ -27,7 +29,9 @@ def ping_ip_addresses(*args):
         c = (a, b) 
     print(c)
     return c
-    
-ping_ip_addresses("a", "8.8.8.8", "1.1.1.1", "1.1.1")
+
+
+if __name__ == "__main__":
+    ping_ip_addresses("a", "8.8.8.8", "1.1.1.1", "1.1.1")
 
 
