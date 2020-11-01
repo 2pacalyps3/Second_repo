@@ -30,3 +30,32 @@
  '172.21.41.129', '172.21.41.130', '172.21.41.131', '172.21.41.132']
 
 """
+from task_12_1 import ping_ip_addresses
+
+
+def convert_ranges_to_ip_list(*args):
+    
+    a = []
+    itogovyi_spisok = []
+    for i in _list:
+        if "-" in i:
+            b = i.split("-")
+            a.append(b)
+        else:
+            a.append(i)
+    for c in a:
+        if type(c) == list:
+            d = c[0].split(".")
+            j = c[1].split(".")
+            for num in range(int(d[-1]), int(j[-1])+1):
+                d[-1] = d[-1].replace(d[-1], str(num))
+                itogovyi_spisok.append(".".join(d))               
+        else:
+            itogovyi_spisok.append(c)
+    for spisok in itogovyi_spisok:
+        ping_ip_addresses(spisok)
+    return itogovyi_spisok
+
+
+_list = ['8.8.4.4', '1.1.1.1-3', '172.21.41.128-172.21.41.132']
+print(convert_ranges_to_ip_list(_list))
