@@ -17,7 +17,7 @@
 import subprocess
 
 
-def ping_ip_addresses(*args):
+def ping_ip_addresses(args):
     a = []
     b = []
     for i in args:
@@ -27,11 +27,9 @@ def ping_ip_addresses(*args):
         else:
             b.append(i)
         c = (a, b) 
-    print(c)
     return c
 
 
 if __name__ == "__main__":
-    ping_ip_addresses("a", "8.8.8.8", "1.1.1.1", "1.1.1")
-
+    print(ping_ip_addresses(['8.8.4.4', '1.1.1.1', '1.1.1.2', '1.1.1.3', '172.21.41.128', '172.21.41.129', '172.21.41.130', '172.21.41.131', '172.21.41.132']))
 
