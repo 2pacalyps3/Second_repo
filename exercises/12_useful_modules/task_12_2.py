@@ -52,10 +52,10 @@ def convert_ranges_to_ip_list(*args):
                 itogovyi_spisok.append(".".join(d))               
         else:
             itogovyi_spisok.append(c)
-    for spisok in itogovyi_spisok:
-        ping_ip_addresses(spisok)
-    return itogovyi_spisok
+    print(itogovyi_spisok)
+    return ping_ip_addresses(itogovyi_spisok)
 
 
 _list = ['8.8.4.4', '1.1.1.1-3', '172.21.41.128-172.21.41.132']
 print(convert_ranges_to_ip_list(_list))
+
