@@ -24,15 +24,17 @@ ignore = ["duplex", "alias", "Current configuration"]
 
 def ignore_command(command):
     return any(word in command for word in ignore)
-result = {}
+
 
 def func(config_filename):
+    result = {}
     with open(config_filename) as f:
-        for line in f:       
+        for line in f:
+
             if line[0].isalpha() or line[0].startswith(" "):
                 if ignore[0] in line or ignore[1] in line or ignore[2] in line:
                     pass
-                else:     
+                else:
                     a = line.rstrip()
                     if a[0].isalpha() and a.startswith(""):
                         result1 = []
@@ -42,7 +44,7 @@ def func(config_filename):
                         res1 = a
                         result1.append(res1)
                         result[res] = result1
-                        
-    print(result)
-func("config_sw1.txt")
-print(ignore_command(result))
+
+    return result
+print(func("config_sw1.txt"))
+print(ignore_command(func("config_sw1.txt")))

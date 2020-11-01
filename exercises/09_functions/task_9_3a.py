@@ -23,10 +23,10 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
-result = {}
-result1 = {}
-result2 = (result, result1)
 def get_int_vlan_map(config_filename):
+    result = {}
+    result1 = {}
+    result2 = (result, result1)
     with open(config_filename) as f:
         for line in f:
             if "interface" in line:
@@ -40,6 +40,6 @@ def get_int_vlan_map(config_filename):
                 result1[interface] = vlans
             elif "access" in line and "vlan" not in line:
                 result[interface] = "1"
-    print(result2)
-get_int_vlan_map("config_sw2.txt")
+    return result2
+print(get_int_vlan_map("config_sw2.txt"))
 
