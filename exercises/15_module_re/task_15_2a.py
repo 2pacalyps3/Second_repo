@@ -33,3 +33,17 @@ data = [
     ("R2", "15.2(2)T1", "Cisco 2911"),
     ("SW1", "12.2(55)SE9", "Cisco WS-C2960-8TC-L"),
 ]
+from pprint import pprint
+
+
+def convert_to_dict(head, data2):
+    d_keys = head
+    spisok = []
+    for i in data2:
+        d_values = i
+        a = dict(zip(d_keys, i))
+        spisok.append(a)
+    return spisok
+
+
+pprint(convert_to_dict(headers, data))
