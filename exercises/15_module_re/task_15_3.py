@@ -31,3 +31,22 @@ object network LOCAL_10.1.9.5
 
 Во всех правилах для ASA интерфейсы будут одинаковыми (inside,outside).
 """
+import re
+
+
+
+def convert_ios_nat_to_asa(filename1, filename2):
+    f2 = open(filename2, "w")
+    with open(filename1) as f:
+        for line in f:
+            match = re.search(r'ip (\S+) \w+ \w+ (\w+) (\w+) (\S+) (\d+) (\w+) \S+ (\d+)', line)
+            a = "object network LOCAL_" + match[4]
+            b = " host" + " " + match[4]
+            c = " " + match[1] + " " + "(inside,outside) " + match[2] + " " + match[6] + " service " + match[3] + " " + match[5] + " " + match[7]
+            f2.write(a + "\n")
+            f2.write(b + "\n")
+            f2.write(c + "\n")
+convert_ios_nat_to_asa("cisco_nat_config.txt", "vyvod.txt")
+
+
+
