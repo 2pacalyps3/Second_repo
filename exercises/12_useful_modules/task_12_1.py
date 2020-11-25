@@ -16,7 +16,6 @@
 """
 import subprocess
 
-
 def ping_ip_addresses(args):
     a = []
     b = []
