@@ -42,8 +42,7 @@ bin_ip = "00001010000000010000000111000011"
 ip_mask = input("Введите IP и маску: ")
 ip_add = ip_mask.split("/")
 mask = ip_add[-1]
-add = ip_add[0]
-add1 = ip_add[0].split(".")
+add = ip_add[0].split(".")
 Ip_address = """
 Network:
 {0:<10} {1:<10} {2:<10} {3:<10}
@@ -56,9 +55,11 @@ Mask:
 """
 Mask1 = 32-int(mask)
 Mask = "1" * int(mask) + "0" * Mask1
-int1 = Mask[0:8]
-int2 = Mask[8:16]
-int3 = Mask[16:24]
-int4 = Mask[24:32]
-print(Ip_address.format(int(add1[0]), int(add1[1]), int(add1[2]), 0 , int(int1, 2), int(int2, 2), int(int3, 2), int(int4, 2), mask))
+int1, int2, int3, int4 = Mask[0:8], Mask[8:16], Mask[16:24], Mask[24:32]
+a = "{:08b},{:08b},{:08b},{:08b}".format(int(add[0]), int(add[1]), int(add[2]), int(add[3]))
+b = a.split(",")
+c = "".join(b)
+add1 = c[0:32-Mask1] + "0" * Mask1
+ip1, ip2, ip3, ip4 = int(add1[0:8], 2), int(add1[8:16], 2), int(add1[16:24], 2), int(add1[24:32], 2)
+print(Ip_address.format(ip1, ip2, ip3, ip4, int(int1, 2), int(int2, 2), int(int3, 2), int(int4, 2), mask))
 
